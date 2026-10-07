@@ -1,7 +1,7 @@
 import socket
 from tcp import rec_message, send_message
 
-def run_server(HOST = "127.0.0.1", PORT = 9001):
+def run_server(HOST = "127.0.0.1", PORT = 9002):
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     server_address = (HOST, PORT)
@@ -18,9 +18,11 @@ def run_server(HOST = "127.0.0.1", PORT = 9001):
         if message is None:
             print("Cliente fechou conexão!")
             break
-            
+
         print(f"Mensagem recebida: {message}")
-        send_message(client_connection, f"Echo: {data}")
+        response = input("Digite uma resposta:\n")
+
+        send_message(client_connection, response)
 
     client_connection.close()
     print("Conexão encerrada!")

@@ -1,7 +1,7 @@
 import socket
 from tcp import send_message, rec_message
 
-def client(HOST = "127.0.0.1", PORT = 9001):
+def client(HOST = "127.0.0.1", PORT = 9002):
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     client_socket.connect((HOST, PORT))
